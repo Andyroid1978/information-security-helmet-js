@@ -1,0 +1,3 @@
+_scripts
+_sync
+docs

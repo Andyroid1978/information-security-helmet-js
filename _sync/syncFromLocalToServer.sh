@@ -53,11 +53,11 @@ rsyncWithDelete()
 {
 
 #################################### with delete
-#CMD="rsync -az --force --delete --stats --exclude-from=${EXCLUDE_FILE} -e \"ssh -p22\" ./_scripts/ root@${SRV_NAME}:${DEST_ROOT}/_scripts/ ${DRY_RUN}"
-#echo ${CMD}
-
-CMD="rsync -az --force --delete --stats  -e \"ssh -p22\" ./ root@${SRV_NAME}:${DEST_ROOT}/ ${DRY_RUN}"
+CMD="rsync -az --force --delete --stats --exclude-from=${EXCLUDE_FILE} -e \"ssh -p22\" ./_scripts/ root@${SRV_NAME}:${DEST_ROOT}/_scripts/ ${DRY_RUN}"
 echo ${CMD}
+
+#CMD="rsync -az --force --delete --stats  -e \"ssh -p22\" ./ root@${SRV_NAME}:${DEST_ROOT}/ ${DRY_RUN}"
+#echo ${CMD}
 
 }
 

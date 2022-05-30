@@ -1,0 +1,43 @@
+<VirtualHost *:80>
+    ServerAdmin postmaster@free-code-camp-is.obdem.eu
+    ServerName free-code-camp-is.obdem.eu
+
+
+#    DocumentRoot /home/vhosts/free-code-camp-is.obdem.eu/current/public
+#    DirectoryIndex index.php
+
+  <Directory />
+      Options FollowSymLinks
+      AllowOverride None
+  </Directory>
+
+#    <Directory "/home/vhosts/free-code-camp-is.obdem.eu/current/public">
+#        Options -ExecCGI -Indexes -MultiViews +FollowSymLinks
+#        AllowOverride All
+#        Require all granted
+
+#        <IfModule mod_php7.c>
+#            AddType application/x-httpd-php .php
+#            php_flag magic_quotes_gpc Off
+#        </IfModule>
+
+#    </Directory>
+
+    ErrorLog /home/logs/free-code-camp-is.obdem.eu-errors-prod.log
+    CustomLog /home/logs/free-code-camp-is.obdem.eu-access-prod.log combined
+
+### AB: parte per servire roba che gira su nodejs e che risponde sulla porta 3000
+    ProxyRequests Off
+    ProxyPreserveHost On
+    ProxyVia Full
+
+    <Proxy *>
+        Require all granted
+    </Proxy>
+
+    ProxyPass / http://127.0.0.1:3000/
+    ProxyPassReverse / http://127.0.0.1:30000/
+
+
+
+</VirtualHost>
