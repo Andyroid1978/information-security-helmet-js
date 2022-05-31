@@ -48,7 +48,7 @@ app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 
 // We don't need our app to be framed, so you should use `helmet.frameguard()`
 // passing to it the configuration object `{action: 'deny'}`
-
+app.use(helmet.frameguard({action: 'deny'}));
 
 
 
@@ -72,7 +72,7 @@ app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 // It still has limited support.
 
 // Use `helmet.xssFilter()`
-
+app.use(helmet.xssFilter());
 
 
 /** 5) Avoid inferring the response MIME type - `helmet.noSniff()` */
@@ -85,7 +85,7 @@ app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 // instructing the browser to not bypass the provided `Content-Type`.
 
 // Use `helmet.noSniff()`
-
+app.use(helmet.noSniff());
 
 
 /** 6) Prevent IE from opening *untrusted* HTML - `helmet.ieNoOpen()` */
