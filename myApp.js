@@ -98,6 +98,7 @@ app.use(helmet.noSniff());
 // to prevent IE users from executing downloads in the *trusted* site's context.
 
 // Use `helmet.ieNoOpen()`
+app.use(helmet.ieNoOpen());
 
 
 
@@ -117,6 +118,8 @@ app.use(helmet.noSniff());
 // set the field `force` to `true` in the config object. To not alter hyperdev security
 // policy we will intercept and restore the header, after inspecting it for testing.
 
+let ninetyDaysInSeconds = 90*24*60*60;
+app.use(helmet.hsts({maxAge: ninetyDaysInSeconds, force: true}));
 
 //**Note**:
 // Configuring HTTPS on a custom website requires the acquisition of a domain,
@@ -135,7 +138,7 @@ app.use(helmet.noSniff());
 
 // Use `helmet.dnsPrefetchControl()`
 
-
+app.use(helmet.dnsPrefetchControl());
 
 /** 9) Disable Client-Side Caching - `helmet.noCache()` */
 
@@ -147,7 +150,7 @@ app.use(helmet.noSniff());
 
 // Use helmet.noCache()
 
-
+app.use(helmet.noCache());
 /** 10) Content Security Policy - `helmet.contentSecurityPolicy()` */
 
 // This challenge highlights one promising new defense that can significantly reduce
