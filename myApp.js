@@ -7,13 +7,7 @@ var express = require('express'); // Do Not Edit
 var app = express();              // Do Not Edit
 
 
-//const express = require('express')
-const helmet = require('helmet')
 
-//const app = express()
-
-app.use(helmet())
-// ----
 
 /** - Challenges - *
  ********************/
@@ -24,6 +18,9 @@ app.use(helmet())
 // Express apps by setting various HTTP headers.
 // Install the package, then require it.
 
+//const express = require('express')
+const helmet = require('helmet');
+app.use(helmet());
 
 /** 2) Hide potentially dangerous information - `helmet.hidePoweredBy()` */
 
@@ -37,6 +34,7 @@ app.use(helmet())
 
 // Use `helmet.hidePoweredBy()``
 
+app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 
 /** 3) Mitigate the risk of clickjacking - `helmet.frameguard()` */
 
@@ -193,6 +191,8 @@ app.use(helmet())
 // We introduced each middleware separately, for teaching purpose, and for
 // ease of testing. Using the 'parent' `helmet()` middleware is easiest, and
 // cleaner, for a real project.
+
+;
 
 // ---- DO NOT EDIT BELOW THIS LINE ---------------------------------------
 

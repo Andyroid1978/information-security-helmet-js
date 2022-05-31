@@ -7,6 +7,7 @@ attraverso il servizio npm `pm2`.
 E' stato installato anche `nvm` da root per gestire le varie versioni di `node`.
 
 ```bash
+
 $  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
 $ nvm install lts/erbium
@@ -23,7 +24,6 @@ $ a2enmod proxy proxy_http rewrite headers expires
 $ a2ensite free-code-camp-is.obdem.eu.conf
 
 $ service apache2 restart
-
 
 ```
 
